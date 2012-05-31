@@ -7,6 +7,7 @@ package eu.trentorise.smartcampus.ac.provider;
 import eu.trentorise.smartcampus.ac.provider.model.Attribute;
 import eu.trentorise.smartcampus.ac.provider.model.Authority;
 import eu.trentorise.smartcampus.ac.provider.model.User;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import javax.jws.WebService;
@@ -89,5 +90,11 @@ public interface AcProviderService {
      */
     List<Attribute> getUserAttributes(String authToken, String authority,
             String key);
+
+    String generateAuthToken();
+
+    Collection<Authority> getAuthorities();
+
+    Authority getAuthority(String name);
 
 }
