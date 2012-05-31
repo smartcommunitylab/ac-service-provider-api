@@ -50,4 +50,11 @@ public class Authority extends AcObject {
         hash = 17 * hash + (this.name != null ? this.name.hashCode() : 0);
         return hash;
     }
+
+    @Override
+    public String toString() {
+        return "Authority{name="+name+", url="+redirectUrl+'}';
+    }
+    
+    
 }

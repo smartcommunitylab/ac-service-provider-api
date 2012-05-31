@@ -76,4 +76,18 @@ public interface AcProviderService {
     void updateUser(long userId, String authToken, Long expTime,
             List<Attribute> attributes);
 
+    /**
+     * Fetches the user attributes that match the given authority and the key.
+     * If neither is given then it will return all attributes of the user, if
+     * the authority is given then it will return only the attributes of that
+     * authority and if the key is also given then it will return only the attributes
+     * of that authority that have the given key.
+     * @param authToken The authentication token of the user
+     * @param authority The authority name
+     * @param key The key of the attribute
+     * @return The set of attributes that match the parameters
+     */
+    List<Attribute> getUserAttributes(String authToken, String authority,
+            String key);
+
 }

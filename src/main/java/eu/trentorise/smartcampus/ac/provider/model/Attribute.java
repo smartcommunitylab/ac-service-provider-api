@@ -69,6 +69,11 @@ public class Attribute {
         hash = 83 * hash + (this.value != null ? this.value.hashCode() : 0);
         return hash;
     }
+
+    @Override
+    public String toString() {
+        return "Attribute{authority=" + authority + ", key=" + key + ", value=" + value + '}';
+    }
     
     
     
