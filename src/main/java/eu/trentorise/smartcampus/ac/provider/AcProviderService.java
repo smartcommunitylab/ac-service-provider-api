@@ -95,6 +95,10 @@ public interface AcProviderService {
 
     Collection<Authority> getAuthorities();
 
-    Authority getAuthority(String name);
+    Authority getAuthorityByName(String name);
+
+    void createAuthority(Authority auth);
+
+    Authority getAuthorityByUrl(String name);
 
 }
