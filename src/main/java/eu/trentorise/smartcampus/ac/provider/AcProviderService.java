@@ -28,14 +28,14 @@ public interface AcProviderService extends AcService {
      * @return 
      */
     User createUser(String authToken, long expDate,
-            List<Attribute> attributes);
+            List<Attribute> attributes) throws AcServiceException;
 
     /**
      * Completely deletes the user data
      * @param authToken The authentication token of the user
      * @return true if the user was deleted
      */
-    boolean removeUser(String authToken);
+    boolean removeUser(String authToken) throws AcServiceException;
 
     /**
      * Updates the user data with the given values. If a new value for an
@@ -55,16 +55,16 @@ public interface AcProviderService extends AcService {
      * token
      */
     void updateUser(long userId, String authToken, Long expTime,
-            List<Attribute> attributes);
+            List<Attribute> attributes) throws AcServiceException;
 
-    String generateAuthToken();
+    String generateAuthToken() throws AcServiceException;
 
-    Collection<Authority> getAuthorities();
+    Collection<Authority> getAuthorities() throws AcServiceException;
 
-    Authority getAuthorityByName(String name);
+    Authority getAuthorityByName(String name) throws AcServiceException;
 
-    void createAuthority(Authority auth);
+    void createAuthority(Authority auth) throws AcServiceException;
 
-    Authority getAuthorityByUrl(String name);
+    Authority getAuthorityByUrl(String name) throws AcServiceException;
 
 }
