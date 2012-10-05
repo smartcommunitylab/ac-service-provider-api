@@ -34,7 +34,7 @@ public class User extends AcObject {
 		this.authToken = authToken;
 	}
 
-	public long getExpDate() {
+	public long getExpTime() {
 		return expTime;
 	}
 
