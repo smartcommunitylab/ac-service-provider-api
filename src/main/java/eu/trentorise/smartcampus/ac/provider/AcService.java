@@ -12,6 +12,7 @@ import eu.trentorise.smartcampus.ac.provider.model.Attribute;
 import eu.trentorise.smartcampus.ac.provider.model.User;
 
 /**
+ * The interface describes read-only operations on a user
  * 
  * @author Viktor Pravdin
  */

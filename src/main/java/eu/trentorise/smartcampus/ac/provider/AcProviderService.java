@@ -14,6 +14,7 @@ import eu.trentorise.smartcampus.ac.provider.model.Authority;
 import eu.trentorise.smartcampus.ac.provider.model.User;
 
 /**
+ * The interface describes operations managed by ac-provider-service
  * 
  * @author Viktor Pravdin
  */
