@@ -17,10 +17,13 @@ package eu.trentorise.smartcampus.ac.provider.model;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 
  * @author Viktor Pravdin
  */
+@XmlRootElement(name = "User")
 public class User extends AcObject {
 
 	private List<Attribute> attributes;

@@ -15,10 +15,13 @@
  */
 package eu.trentorise.smartcampus.ac.provider.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 
  * @author Viktor Pravdin
  */
+@XmlRootElement(name = "Attribute")
 public class Attribute {
 
 	private Authority authority;

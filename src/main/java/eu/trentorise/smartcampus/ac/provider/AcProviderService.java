@@ -79,6 +79,17 @@ public interface AcProviderService extends AcService {
 	void updateUser(long userId, String authToken, Long expTime,
 			List<Attribute> attributes) throws AcServiceException;
 
+	/**
+	 * Create/update short-living token for the specified user.
+	 * @param userId
+	 * @param expTime
+	 * @throws AcServiceException
+	 * @throws IllegalArgumentException
+	 *             if the user with the given ID doesn't exist or if the
+	 *             expiration time is not specified for an authentication token
+	 */
+	String createSessionToken(long userId, Long expTime) throws AcServiceException;
+	
 	String generateAuthToken() throws AcServiceException;
 
 	Collection<Authority> getAuthorities() throws AcServiceException;
@@ -90,5 +101,30 @@ public interface AcProviderService extends AcService {
 	void updateAuthority(Authority auth) throws AcServiceException;
 
 	Authority getAuthorityByUrl(String name) throws AcServiceException;
+
+	/**
+	 * Reads the users that have the given attributes
+	 * 
+	 * @param attributes
+	 *            The attributes map
+	 * @return The list of users that have the given attributes
+	 * @throws AcServiceException
+	 */
+	List<User> getUsersByAttributes(List<Attribute> attributes) throws AcServiceException;
+
+	/**
+	 * Set the attribute for user, the attribute is added to user attributes (if
+	 * not present) or updated (if already present). An exception is threw if
+	 * userId or authority relative to attribute are not present
+	 * 
+	 * @param userId
+	 *            id of user
+	 * @param attribute
+	 *            attribute to set
+	 * @throws AcServiceException
+	 */
+	void setAttribute(long userId, Attribute attribute)
+			throws AcServiceException;
+
 
 }

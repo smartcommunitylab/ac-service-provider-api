@@ -42,17 +42,6 @@ public interface AcService {
 	User getUserByToken(String authToken) throws AcServiceException;
 
 	/**
-	 * Reads the users that have the given attributes
-	 * 
-	 * @param attributes
-	 *            The attributes map
-	 * @return The list of users that have the given attributes
-	 * @throws AcServiceException
-	 */
-	List<User> getUsersByAttributes(List<Attribute> attributes)
-			throws AcServiceException;
-
-	/**
 	 * Checks if the user is still valid
 	 * 
 	 * @param authToken
@@ -63,6 +52,15 @@ public interface AcService {
 	 */
 	boolean isValidUser(String authToken) throws AcServiceException;
 
+	/**
+	 * Checks whether the user is anonymous, i.e., its identity is not explicitly
+	 * mapped on some account. Represent the users for the 'read-only' access rights.
+	 * @param authToken
+	 * @return
+	 * @throws AcServiceException
+	 */
+	boolean isAnonymousUser(String authToken) throws AcServiceException;
+	
 	/**
 	 * Fetches the user attributes that match the given authority and the key.
 	 * If neither is given then it will return all attributes of the user, if
@@ -79,20 +77,14 @@ public interface AcService {
 	 * @return The set of attributes that match the parameters
 	 * @throws AcServiceException
 	 */
-	List<Attribute> getUserAttributes(String authToken, String authority,
-			String key) throws AcServiceException;
-
+	List<Attribute> getUserAttributes(String authToken, String authority, String key) throws AcServiceException;
+	
 	/**
-	 * Set the attribute for user, the attribute is added to user attributes (if
-	 * not present) or updated (if already present). An exception is threw if
-	 * userId or authority relative to attribute are not present
-	 * 
-	 * @param userId
-	 *            id of user
-	 * @param attribute
-	 *            attribute to set
+	 * Verify whether the specified resource is readable by the specified user.
+	 * @param authToken token identifying the user
+	 * @param resourceId resource id
+	 * @return true if the resource is available and false otherwise
 	 * @throws AcServiceException
 	 */
-	void setAttribute(long userId, Attribute attribute)
-			throws AcServiceException;
+	boolean canReadResource(String authToken, String resourceId) throws AcServiceException;
 }
